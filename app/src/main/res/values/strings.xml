@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Астролябия</string>
+    <string name="btnWithoutExec_name">Нераспределенные обращения</string>
+</resources>
