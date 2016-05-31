@@ -19,6 +19,7 @@
         <activity android:name=".TasksForMe"/>
         <activity android:name=".TasksFromMe"/>
         <activity android:name=".NewTask"/>
+        <activity android:name=".EditTask"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:orientation="vertical">
     <Button
-        android:id="@+id/btnWithoutExec"
+        android:id="@+id/btnNewTask"
+        android:background="#f1f1b7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="@string/btnWithoutExec_name"/>
+        android:text="СОЗДАТЬ НОВОЕ ОБРАЩЕНИЕ"/>
     <Button
         android:id="@+id/btnWhereYouExec"
         android:layout_width="match_parent"
@@ -20,7 +21,7 @@
         android:layout_marginTop="0dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="Обращения, где я исполнитель"/>
+        android:text="НАЗНАЧЕННЫЕ МНЕ ОБРАЩЕНИЯ"/>
     <Button
         android:id="@+id/btnWhereYouUser"
         android:layout_width="match_parent"
@@ -29,15 +30,17 @@
         android:layout_marginTop="0dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="Обращения, где я постановщик"/>
+        android:text="СОЗДАННЫЕ МНОЮ ОБРАЩЕНИЯ"/>
     <Button
-        android:id="@+id/btnNewTask"
+        android:id="@+id/btnWithoutExec"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="Создать новое обращение"/>
+        android:text="НЕРАСПРЕДЕЛЕННЫЕ ОБРАЩЕНИЯ"/>
+
+
 
 </LinearLayout>
 

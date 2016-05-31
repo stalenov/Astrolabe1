@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tvTaskHeader"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="Обращение #"/>
+    <TextView
+        android:id="@+id/tvTaskText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="300dp"
+        android:text = "текст обращения"/>
+    <EditText
+        android:inputType="textMultiLine"
+        android:gravity="top"
+        android:id="@+id/etWindow"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:hint="&lt;добавьте новый комментарий>" />
+    <Button
+        android:id="@+id/btnAddComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Сохранить комментарий"/>
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lvComments" />
+</LinearLayout>

@@ -3,6 +3,7 @@ package com.example.ks.astrolabe1;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -11,6 +12,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnWithoutExec;
@@ -34,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnWhereYouUser.setOnClickListener(this);
         btnNewTask.setOnClickListener(this);
         Log.d(TAG,"Activity created");
+
     }
 
     // создание меню
@@ -76,4 +80,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+
+    public void onStart() {
+        super.onStart();
+        Log.d(TAG, "ONSTART");
+        //for (int i = 0; i < 10; i++) {
+            //Log.d(TAG, String.valueOf(i));
+            // Запрос количеств обращений по каждой из категорий
+            String httpResponse = null;
+            GetHTTP gt = new GetHTTP();
+            gt.execute("getTasksInfo.php");
+            String tasksWOExecNUM, tasksForMeNUM, tasksFromMeNUM;
+            Log.d(TAG,"HTTP");
+            try {
+                httpResponse = gt.get();
+                JSONObject jResponse = new JSONObject(httpResponse);
+                tasksWOExecNUM = jResponse.getString("taskWOexec");
+                btnWithoutExec.setText("НЕРАСПРЕДЕЛЕННЫЕ ОБРАЩЕНИЯ (" + tasksWOExecNUM + ")");
+                tasksForMeNUM = jResponse.getString("tasksForMe");
+                btnWhereYouExec.setText("НАЗНАЧЕННЫЕ МНЕ ОБРАЩЕНИЯ (" + tasksForMeNUM + ")");
+                tasksFromMeNUM = jResponse.getString("tasksFromMe");
+                btnWhereYouUser.setText("СОЗДАННЫЕ МНОЮ ОБРАЩЕНИЯ (" + tasksFromMeNUM + ")");
+
+                //Log.d(TAG, "HTTP data: " + tasksWOExecNUM + " " + tasksForMeNUM + " " + tasksFromMeNUM);
+
+                //System.out.println(httpResponse);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        //}
+    }
+
+
 }

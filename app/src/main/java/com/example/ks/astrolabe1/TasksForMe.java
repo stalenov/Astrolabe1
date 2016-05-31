@@ -1,6 +1,7 @@
 package com.example.ks.astrolabe1;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -49,11 +50,10 @@ public class TasksForMe extends AppCompatActivity {
             JSONObject jTaskList = jResponse.getJSONObject("tasksList");
             JSONArray jTasks = jTaskList.getJSONArray("tasks");
 
-
             for (int i = 0; i < jTasks.length(); i++) {
                 JSONObject task = jTasks.getJSONObject(i);
                 HashMap<String, String> hmTask = new HashMap<>();
-                hmTask.put("id", task.getString("id_task"));
+                hmTask.put("id", task.getString("id_task") + " [" + task.getString("id_user") + "] " + task.getString("open_date"));
                 hmTask.put("text", task.getString("task_text"));
 
                 alTasks.add(hmTask);
@@ -75,14 +75,14 @@ public class TasksForMe extends AppCompatActivity {
         lvTasks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("TAG-SHMAG", "" + id);
+                Log.d(TAG, "" + id);
+
+                Intent intent = new Intent(TasksForMe.this, EditTask.class);
+                startActivity(intent);
+
             }
         });
-
-
         registerForContextMenu(lvTasks);
-
-
     }
 
     // Контекстное меню

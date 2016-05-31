@@ -4,6 +4,21 @@
     android:layout_height="match_parent">
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="ЗАДАЧИ БЕЗ ИСПОЛНИТЕЛЯ"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Интерфейс в целом аналогичен интенту с 'задчами для меня'.
+Короткий клик на задаче вызывает меню выбора исполнителя.
+Длинный - дополнительную информацию (метаданные, инфо о постановщике)
+
+"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+
 </LinearLayout>
